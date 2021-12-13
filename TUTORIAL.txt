@@ -1,0 +1,55 @@
+This tutorial is based on:
+https://www.gtk.org/docs/installations/windows#installation
+https://pygobject.readthedocs.io/en/latest/getting_started.html
+
+
+Step 1 - Using GTK-based tool via MSYS2
+
+- Download MSYS2 from https://www.msys2.org/
+
+- Open an MSYS2 shell (Windows Key -> MSYS2 MinGW 64-bit)
+
+- Run:
+   pacman -Suy
+
+- Run: 
+   pacman -S mingw-w64-x86_64-gtk3 mingw-w64-x86_64-python3 mingw-w64-x86_64-glade mingw-w64-x86_64-python3-gobject mingw-w64-x86_64-python-pillow mingw-w64-x86_64-gdk-pixbuf2 mingw-w64-x86_64-python-gobject mingw-w64-x86_64-glib2 mingw-w64-x86_64-python-numpy
+(Test if GTK is working by executing: gtk3-demo)
+
+- Install git:
+   pacman -S git
+
+- Install Python GTK:
+   pip install pygtk
+
+
+Step 2 - Run the Overlay
+
+- Clone the Overlay Project:
+   git clone https://github.com/lacksfish/Discover-Windows-Overlay.git
+
+- Update Start Script
+Go to the Discover folder under "C:\msys64\home\YOURUSERNAME\Discover"
+Edit the file startWin.sh
+
+- Create a shortcut
+On your Desktop, make a new Shortcut (right-click, New, Shortcut)
+Enter this for the path - make sure to replace YOURUSERNAME with your username:
+C:\msys64\usr\bin\mintty.exe /bin/env MSYSTEM=MINGW64 /bin/bash -l /c/msys64/home/YOURUSERNAME/Discover/startWin.sh
+
+- Test the Overlay
+Enter an empty voice channel and check if the Overlay is working
+
+
+Step 3 - OBS setup (with Overlay running)
+
+- Add a Window Capture
+Select the "Discover Voice" window
+Capture method has to be "Windows Graphics Capture"
+You can check "Capture Cursor"
+
+- Add Filter to Window Capture
+Add a "Color Key" filter, set Key Color to #000000 (black) and set Similarity and Smoothness to 1
+
+- Customize Overlay to your preferences
+Right click the overlay icon in the status bar (next to your clock in the Windows bar) and select settings
