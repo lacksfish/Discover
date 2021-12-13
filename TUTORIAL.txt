@@ -13,14 +13,11 @@ Step 1 - Using GTK-based tool via MSYS2
    pacman -Suy
 
 - Run: 
-   pacman -S mingw-w64-x86_64-gtk3 mingw-w64-x86_64-python3 mingw-w64-x86_64-glade mingw-w64-x86_64-python3-gobject mingw-w64-x86_64-python-pillow mingw-w64-x86_64-gdk-pixbuf2 mingw-w64-x86_64-python-gobject mingw-w64-x86_64-glib2 mingw-w64-x86_64-python-numpy
+   pacman -S mingw-w64-x86_64-gtk3 mingw-w64-x86_64-python3 mingw-w64-x86_64-glade mingw-w64-x86_64-python3-gobject mingw-w64-x86_64-python-pillow mingw-w64-x86_64-gdk-pixbuf2 mingw-w64-x86_64-python-gobject mingw-w64-x86_64-glib2 mingw-w64-x86_64-python-numpy mingw-w64-x86_64-python-pip
 (Test if GTK is working by executing: gtk3-demo)
 
 - Install git:
    pacman -S git
-
-- Install Python GTK:
-   pip install pygtk
 
 
 Step 2 - Run the Overlay
@@ -28,14 +25,18 @@ Step 2 - Run the Overlay
 - Clone the Overlay Project:
    git clone https://github.com/lacksfish/Discover-Windows-Overlay.git
 
+- Install Python requirements:
+   cd Discover-Windows-Overlay
+   python3 -m pip install .
+
 - Update Start Script
-Go to the Discover folder under "C:\msys64\home\YOURUSERNAME\Discover"
+Go to the Discover folder under "C:\msys64\home\YOURUSERNAME\Discover-Windows-Overlay"
 Edit the file startWin.sh
 
 - Create a shortcut
 On your Desktop, make a new Shortcut (right-click, New, Shortcut)
 Enter this for the path - make sure to replace YOURUSERNAME with your username:
-C:\msys64\usr\bin\mintty.exe /bin/env MSYSTEM=MINGW64 /bin/bash -l /c/msys64/home/YOURUSERNAME/Discover/startWin.sh
+C:\msys64\usr\bin\mintty.exe /bin/env MSYSTEM=MINGW64 /bin/bash -l /c/msys64/home/YOURUSERNAME/Discover-Windows-Overlay/startWin.sh
 
 - Test the Overlay
 Enter an empty voice channel and check if the Overlay is working
